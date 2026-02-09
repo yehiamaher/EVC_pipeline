@@ -1,0 +1,31 @@
+1-project:
+  name: ecoli-variant-calling
+  organism: Escherichia coli
+  strain: REL606
+------------------------------------------------------------------------------------------------------------------------------
+2-paths:
+  raw_data: data/
+  reference: data/ref_genome/E.coli_reference.fna
+  annotation: data/ref_genome/sequence.gff3
+  results: data/results
+------------------------------------------------------------------------------------------------------------------------------
+3-resources:
+  threads: 8
+  memory_gb: 16
+------------------------------------------------------------------------------------------------------------------------------
+4-tools_locations:
+
+fastqc: fastqc
+trimmomatic: trimmomatic
+bwa: bwa
+samtools: samtools
+bcftools: bcftools
+------------------------------------------------------------------------------------------------------------------------------
+5-parameters:
+  trimming:
+    min_length: 36
+    quality_threshold: 20
+
+  variant_calling:
+    min_depth: 10
+    min_qual: 30
