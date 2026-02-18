@@ -29,8 +29,11 @@ Academic coursework and bioinformatics diplomas -Research projects -Training and
 ## Output Files
 results/
 ├── qc/        # FastQC reports (pre- and post-trimming)
+
 ├── bam/       # Sorted and indexed BAM files
+
 ├── vcf/       # Raw and filtered VCF files
+
 └── tmp/       # Temporary intermediate files
 
 ## Installation:
