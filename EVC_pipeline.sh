@@ -4,30 +4,38 @@ set -euo pipefail
 
 #-------------------------------------------------------
 # Pipeline: E. coli variant calling pipeline
-# Author: Yahia.M.M
-# Date: $(date)
-# version: 0.1 first draft
+# Author: Yahia Maher Mohamed
+# Date: 01.Feb.2026
+# version: 1.0
 # Detecting the number of CPU cores threads
 #-------------------------------------------------------
 
 # indentifying directories
 
 #-------------------------------------------------------
-RAW= $1
-REF= $2
-qc= $3
-BAM_DIR= $4
-TMP_DIR= $5
-VCF_DIR= $6
+RAW="$1"
+REF="$2"
+QC_DIR="$3"
+BAM_DIR="$4"
+TMP_DIR="$5"
+VCF_DIR="$6"
 threads=$(( $(nproc) - 2 ))
 if [ "$threads" -lt 1 ]; then
     threads=1
 fi
-#-------------------------------------------------------
-# safety check for tools installation
-command -v bwa >/dev/null 2>&1 || { echo "bwa not installed"; exit 1; }
-command -v samtools >/dev/null 2>&1 || { echo "samtools not installed"; exit 1; }
-command -v bcftools >/dev/null 2>&1 || { echo "bcftools not installed"; exit 1; }
+# -------------------------------
+# Create Output Directories
+# -------------------------------
+mkdir -p "$QC_DIR" "$BAM_DIR" "$TMP_DIR" "$VCF_DIR"
+# -------------------------------
+# Tool Availability Check
+# -------------------------------
+for tool in fastqc trimmomatic bwa samtools bcftools vcftools; do
+    if ! command -v "$tool" &> /dev/null; then
+        echo "[ERROR] $tool is not installed or not in PATH"
+        exit 1
+    fi
+done
 #-------------------------------------------------------
 # assigning the forward and reverse files
 SAMPLE=$(basename "$R1" _R1.fastq)
