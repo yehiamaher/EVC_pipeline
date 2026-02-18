@@ -27,7 +27,11 @@ Academic coursework and bioinformatics diplomas -Research projects -Training and
 2- Reference Genome -E. coli REL606 reference genome (FASTA) -Corresponding annotation file (GFF)
 
 ## Output Files
-All outputs are automatically generated under the results/ directory: qc/ : fastq reports bam/ : Sorted and indexed BAM files vcf/ : Raw and filtered VCF files tmp/ : temporary files.
+results/
+├── qc/        # FastQC reports (pre- and post-trimming)
+├── bam/       # Sorted and indexed BAM files
+├── vcf/       # Raw and filtered VCF files
+└── tmp/       # Temporary intermediate files
 
 ## Installation:
     * Conda Environment (Recommended)
