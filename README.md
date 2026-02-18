@@ -54,6 +54,13 @@ results/
 3. Load the corresponding VCF file
 4. Inspect SNPs and indels at candidate loci
 
+## Test Dataset
+
+Due to GitHub file size limitations, the test dataset is hosted externally:
+
+Download here:
+[https://zenodo.org/xxxx](https://drive.google.com/drive/folders/1TOLcxFDN-PFhOWlm7Fea5PFQ1y1D_07t?usp=sharing)
+
 ## Author:
 Yahia Maher Mohamed Molecular Biologist | NGS & Bioinformatics Egypt
 
